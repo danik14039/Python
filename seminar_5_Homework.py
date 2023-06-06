@@ -6,16 +6,22 @@
 Input: 5
 Output: yes '''
 
-def prime_number(n):
+def prime_number(n, i=2):
     if n == 1 or n == 2:
         return True
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-        return True
+    elif n % i == 0:
+        return False
+    elif i*i>n:
+        return True    
+    return prime_number(n, i+1)
+
+print(prime_number(101))
+        
 
 
-print(prime_number(12))
+
+
+
 
 '''
 Задача №37.
@@ -40,3 +46,14 @@ array = [1, 2, 3, 4, 5]
 print(array)
 
 print(rev(array))
+
+
+def f(n):
+    if n == 0:
+        return ''
+    k = int(input())
+    return f(n - 1) + f' {k}'
+
+
+n = int(input())
+print(f(n))
